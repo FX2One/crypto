@@ -5,11 +5,13 @@
     <title>Crypto </title>
 </head>
 <body>
-    <div class="container">
-        <h1>Crypto Price Tracker</h1>
-        {% for crypto_price in price %}
-        <p>{{ crypto_price }}</p>
+<div class="container">
+    <h1>Crypto Price Tracker</h1>
+    {% for dict_item in price %}
+        <h1>{{dict_item['name']}}</h1>
+        {% for key,value in dict_item.items() %}
+            <p>{{key}}:{{value}}</p>
         {% endfor %}
-    </div>
+    {% endfor %}
+</div>
 </body>
-</html>
