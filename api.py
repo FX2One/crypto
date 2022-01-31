@@ -1,9 +1,8 @@
 from requests import Request, Session
 import json
 
-
 class Crypto:
-    def __init__(self, token: str) -> str:
+    def __init__(self, token):
         self.base_url = 'https://pro-api.coinmarketcap.com'
         self.headers = {'Accepts': 'application/json',
                         'X-CMC_PRO_API_KEY': token,
@@ -11,22 +10,16 @@ class Crypto:
         self.session = Session()
         self.session.headers.update(self.headers)
 
-    def get_top_5_coins(self,convert: str) -> str:
+    def get_top_coins(self,limit,convert):
         url = self.base_url + '/v1/cryptocurrency/listings/latest'
         parameters = {'start':'1',
-                      'limit': '5',
+                      'limit': limit,
                       'convert': convert}
         response = self.session.get(url, params=parameters)
         data = json.loads(response.text)
         return data['data']
 
-    def get_top_10_coins(self,convert: str) -> str:
-        url = self.base_url + '/v1/cryptocurrency/listings/latest'
-        parameters = {'start':'1',
-                      'limit': '10',
-                      'convert': convert}
-        response = self.session.get(url, params=parameters)
-        data = json.loads(response.text)
-        return data['data']
+
+
 
 
