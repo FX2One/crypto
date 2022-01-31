@@ -1,0 +1,23 @@
+<table class="table">
+    <thead >
+    <tr>
+        <th>Crypto Name</th>
+        <th>Symbol</th>
+        <th>Price</th>
+        <th>1h Status</th>
+        <th>24h Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for item in price %}
+    <tr>
+        <td><a href="">{{item.name}}</a></td>
+        <td>{{item.symbol}}</td>
+        <td>{{item.price}} {{convert}}</td>
+        <td>{{item.percent_change_1h}}</td>
+        <td>{{item.percent_change_24h}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

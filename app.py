@@ -28,7 +28,7 @@ def cmc_currency5():
                 'percent_change_90d': round(data[i]['quote'][convert]['percent_change_90d'],2)}
         dict_copy = dict.copy()
         cryptoPrice.append(dict_copy)
-    return render_template("index.html", price=cryptoPrice, convert=convert)
+    return render_template("top_five.html", price=cryptoPrice, convert=convert)
 
 @app.route("/top-10")
 def cmc_currency10():
@@ -48,7 +48,7 @@ def cmc_currency10():
                 'percent_change_90d': round(data[i]['quote'][convert]['percent_change_90d'],2)}
         dict_copy = dict.copy()
         cryptoPrice.append(dict_copy)
-    return render_template("index2.html", price=cryptoPrice, convert=convert)
+    return render_template("top_ten.html", price=cryptoPrice, convert=convert)
 
 if __name__ == '__main__':
     app.run(debug=True)
