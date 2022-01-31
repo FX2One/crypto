@@ -33,19 +33,4 @@ def cmc_currency():
 if __name__ == '__main__':
     app.run(debug=True)
 
-'''    for i in range(5):
-        dict = {'name': data[i]['name'], 'slug': data[i]['slug'],
-                'price': data[i]['quote'][convert]['price'],
-                'percent_change_1h': round(data[i]['quote'][convert]['percent_change_1h'],2),
-                'percent_change_24h': round(data[i]['quote'][convert]['percent_change_24h'],2),
-                'percent_change_7d': round(data[i]['quote'][convert]['percent_change_7d'],2),
-                'percent_change_30d': round(data[i]['quote'][convert]['percent_change_30d'],2),
-                'percent_change_60d': round(data[i]['quote'][convert]['percent_change_60d'],2),
-                'percent_change_90d': round(data[i]['quote'][convert]['percent_change_90d'],2)}
-        headings.append(data[i]['name'])
-        dict_copy = dict.copy()
-        cryptoPrice.append(dict_copy)
-        return render_template("index.html", price=cryptoPrice, headings=headings)
-        '''
-
 
