@@ -7,6 +7,7 @@ app.config.from_object('config')
 '''passes secret key as token value taken in Crypto class'''
 crypto = Crypto(app.config['SECRET_KEY'])
 
+'''append values as list of dictionaries by calling API'''
 def cmc_currency(limit,convert):
     data = crypto.get_top_coins(limit,convert)
     cryptoPrice = []
@@ -28,23 +29,23 @@ def cmc_currency(limit,convert):
 def index():
     return render_template("index.html")
 
+'''provide number in URL to display amount of cryptocurrencies to display'''
+@app.route("/top/<int:number>")
+def cmc_currency_top(number):
+    number = number
+    cryptoPrice = cmc_currency(number,'PLN')
+    print(cryptoPrice)
+    return render_template("top_coin.html", price=cryptoPrice)
 
 
-@app.route("/top-5")
+'''@app.route("/top-5")
 def cmc_currency5():
     cryptoPrice = cmc_currency(5, 'PLN')
 
-    return render_template("top_five.html", price=cryptoPrice)
+    return render_template("top_coin.html", price=cryptoPrice)'''
 
-
-@app.route("/top-10")
+'''@app.route("/top-10")
 def cmc_currency10():
     cryptoPrice = cmc_currency(10, 'PLN')
 
-    return render_template("top_ten.html", price=cryptoPrice)
-
-@app.route("/top-15")
-def cmc_currency15():
-    cryptoPrice = cmc_currency(15, 'PLN')
-
-    return render_template("top_15.html", price=cryptoPrice)
+    return render_template("top_coin.html", price=cryptoPrice)'''

@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<p><a href="{{ url_for('cmc_currency5') }}">Check out top 5 crypto currencies!</a></p>
-<p><a href="{{ url_for('cmc_currency10') }}">Check out top 10 crypto currencies!</a></p>
+
+<p><a href="{{url_for('cmc_currency_top', number=5)}}">Check out top 5 crypto currencies!</a></p>
+<p><a href="{{url_for('cmc_currency_top', number=10)}}">Check out top 10 crypto currencies!</a></p>
+<p><a href="{{url_for('cmc_currency_top', number=15)}}">Check out top 15 crypto currencies!</a></p>
+
 {% endblock %}
