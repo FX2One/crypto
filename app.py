@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from api import Crypto
 
 app = Flask(__name__)
@@ -26,11 +26,16 @@ def cmc_currency(limit,convert):
         cryptoPrice.append(dict_copy)
     return cryptoPrice
 
+@app.route("/")
+def index():
+    return render_template("index.html")
+
 @app.route("/top-5")
 def cmc_currency5():
     cryptoPrice = cmc_currency(5, 'PLN')
 
     return render_template("top_five.html", price=cryptoPrice)
+
 
 @app.route("/top-10")
 def cmc_currency10():

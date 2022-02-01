@@ -12,7 +12,7 @@
     <tbody>
     {% for item in price %}
     <tr>
-        <td><a href="">{{item.name}}</a></td>
+        <td><a href="{{ url_for('cmc_currency7') }}">{{item.name}}</a></td>
         <td>{{item.symbol}}</td>
         <td>{{item.price}} {{convert}}</td>
         <td>{{item.percent_change_1h}}</td>
