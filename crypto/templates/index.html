@@ -5,26 +5,23 @@
     <div class="container">
         <div class="row">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{{url_for('static', filename='img/top5.png')}}" class="img-thumbnail" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Check out top 5 crypto currencies!</p>
+                    <h5 class="card-title">TOP 5 Cryptos</h5>
                     <a href="{{url_for('cmc_currency_top', number=5)}}" class="btn btn-primary">Check</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{{url_for('static', filename='img/top10.png')}}" class="img-thumbnail" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Check out top 10 crypto currencies!</p>
+                    <h5 class="card-title">TOP 10 Cryptos</h5>
                     <a href="{{url_for('cmc_currency_top', number=10)}}" class="btn btn-primary">Check</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="{{url_for('static', filename='img/top15.png')}}" class="img-thumbnail" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Check out top 15 crypto currencies!</p>
+                    <h5 class="card-title">TOP 15 Cryptos</h5>
                     <a href="{{url_for('cmc_currency_top', number=15)}}" class="btn btn-primary">Check</a>
                 </div>
             </div>
