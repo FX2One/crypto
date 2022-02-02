@@ -1,5 +1,5 @@
 from . import app
-from flask import Flask, render_template
+from flask import render_template
 from api import Crypto
 
 app.config.from_object('config')
@@ -34,7 +34,6 @@ def index():
 def cmc_currency_top(number):
     number = number
     cryptoPrice = cmc_currency(number,'PLN')
-    print(cryptoPrice)
     return render_template("top_coin.html", price=cryptoPrice)
 
 
@@ -49,3 +48,22 @@ def cmc_currency10():
     cryptoPrice = cmc_currency(10, 'PLN')
 
     return render_template("top_coin.html", price=cryptoPrice)'''
+
+'''def cmc_currency(limit,convert):
+    data = crypto.get_top_coins(limit,convert)
+    cryptoPrice = []
+    for i in range(limit):
+        lista = ['1h','24h','7d','30d','60d','90d']
+        for val in lista:
+        dict = {'name': data[i]['name'],
+                'symbol': data[i]['symbol'],
+                'price': round(data[i]['quote'][convert]['price'],2),
+                'percent_change_1h': round(data[i]['quote'][convert]['percent_change_1h'],2),
+                'percent_change_24h': round(data[i]['quote'][convert]['percent_change_24h'],2),
+                'percent_change_7d': round(data[i]['quote'][convert]['percent_change_7d'],2),
+                'percent_change_30d': round(data[i]['quote'][convert]['percent_change_30d'],2),
+                'percent_change_60d': round(data[i]['quote'][convert]['percent_change_60d'],2),
+                'percent_change_90d': round(data[i]['quote'][convert]['percent_change_90d'],2)}
+        dict_copy = dict.copy()
+        cryptoPrice.append(dict_copy)
+    return cryptoPrice'''

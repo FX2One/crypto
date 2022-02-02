@@ -6,18 +6,39 @@
         <th>Price</th>
         <th>1h Status</th>
         <th>24h Status</th>
+        <th>7d Status</th>
+        <th>30d Status</th>
+        <th>60d Status</th>
+        <th>90d Status</th>
     </tr>
     </thead>
 
     <tbody>
+    <h2>
+        <a style="text-decoration:none; color:black;" href="{{url_for('index')}}">Crypto Tracker</a>
+    </h2>
+
     {% for item in price %}
     <tr>
-        <td><a href="">{{item.name}}</a></td>
+        {% set hour1 = item.percent_change_1h %}
+        {% set hour24 = item.percent_change_24h %}
+        {% set day7 = item.percent_change_7d %}
+        {% set day30 = item.percent_change_30d %}
+        {% set day60 = item.percent_change_60d %}
+        {% set day90 = item.percent_change_90d %}
+        {% set tlist = [hour1,hour24,day7,day30,day60,day90] %}
+        <td>{{item.name}}</td>
         <td>{{item.symbol}}</td>
         <td>{{item.price}} {{convert}}</td>
-        <td>{{item.percent_change_1h}}</td>
-        <td>{{item.percent_change_24h}}</td>
+        {% for value in tlist %}
+            {% if value > 0 %}
+                <td style="color:green">{{value}}</td>
+            {% else %}
+                <td style="color:red">{{value}}</td>
+            {% endif %}
+        {% endfor %}
     </tr>
     {% endfor %}
     </tbody>
 </table>
+
