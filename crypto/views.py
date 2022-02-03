@@ -30,8 +30,9 @@ def index():
     return render_template("index.html")
 
 '''provide number in URL to display amount of cryptocurrencies to display manually'''
-'''change currency symbol to desired one to have currency you want'''
+'''change convert symbol to desired one to have currency you want'''
 @app.route("/top/<int:number>")
 def cmc_currency_top(number):
-    cryptoPrice = cmc_currency(number, 'PLN')
+    convert = 'PLN'
+    cryptoPrice = cmc_currency(number, convert)
     return render_template("top_coin.html", price=cryptoPrice)
