@@ -29,7 +29,7 @@
         {% set tlist = [hour1,hour24,day7,day30,day60,day90] %}
         <td>{{item.name}}</td>
         <td>{{item.symbol}}</td>
-        <td>{{item.price}} {{convert}}</td>
+        <td>{{item.price}}</td>
         {% for value in tlist %}
             {% if value > 0 %}
                 <td style="color:green">{{value}}</td>

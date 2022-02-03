@@ -2,6 +2,7 @@ from requests import Request, Session
 import json
 
 class Crypto:
+    '''token is *args taken from .env file'''
     def __init__(self, token):
         self.base_url = 'https://pro-api.coinmarketcap.com'
         self.headers = {'Accepts': 'application/json',
